@@ -1,12 +1,22 @@
 <script setup>
 import { useForm, useField } from "vee-validate";
+import { useData } from "~/store/useData";
+const store = useData();
+
 const err = ref(null);
 const credentail = ref(null);
 const initialValue = ref("");
 const dialog = ref(true);
 const gender = ref(["male", "female"]);
-const { loginWithPasswordAndEmail, google, updateProfile, user, signout } =
-  useLogin();
+const {
+  loginWithPasswordAndEmail,
+  google,
+  updateProfile,
+  user,
+  signout,
+  updateemail,
+  verifyBeforeUpdate,
+} = useLogin();
 
 const { createAccountWithEmailAndPassword } = useCreateAccount();
 let i = ref(0);
@@ -14,13 +24,15 @@ const { handleSubmit } = useForm();
 
 const submit = handleSubmit(async (value) => {
   console.log(value);
-  const { result, error } = await createAccountWithEmailAndPassword({
+  const { error: updateError } = await verifyBeforeUpdate(value.email);
+  console.log(updateError);
+  const { result, error } = await updateemail({
     email: value.email,
-    password: value.pass,
   });
 
   if (!error) {
   }
+  console.log(error);
 
   credentail.value = result;
   err.value = error;
@@ -68,6 +80,9 @@ definePageMeta({
 
 const signo = () => {
   signout();
+};
+const changeData = () => {
+  store.changeOneData("one data value is changed in index value");
 };
 </script>
 
@@ -130,9 +145,14 @@ const signo = () => {
         <NuxtLink
           :to="{ path: '/' }"
           class="text-[0.6rem] text-blue-800"
+          @click.prevent="changeData"
           >forget password</NuxtLink
         >
+        <span>{{ store.oneData }}</span>
       </form>
+      <NuxtLink :to="{ name: 'movie-id', params: { id: '73949' } }"
+        >[id]</NuxtLink
+      >
     </div>
   </main>
 </template>

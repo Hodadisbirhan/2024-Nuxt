@@ -5,6 +5,8 @@ import {
   getAuth,
   updateProfile,
   signOut,
+  updateEmail,
+  verifyBeforeUpdateEmail,
 } from "firebase/auth";
 
 export default function useLogin() {
@@ -21,6 +23,7 @@ export default function useLogin() {
       return { result: null, error: error?.message };
     }
   };
+
   const google = async () => {
     try {
       const result = await signInWithPopup(getAuth(), new GoogleAuthProvider());
@@ -30,6 +33,27 @@ export default function useLogin() {
       return { result: null, error: error?.message };
     }
   };
+
+  const updateemail = async ({ email }) => {
+    try {
+      const result = await updateEmail(getAuth().currentUser, email);
+
+      return { result, error: null };
+    } catch (error) {
+      return { result: null, error };
+    }
+  };
+
+  const verifyBeforeUpdate = async (email) => {
+    try {
+      await verifyBeforeUpdateEmail(getAuth().currentUser, email);
+
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
+  };
+
   const signout = () => {
     signOut(getAuth());
   };
@@ -39,6 +63,8 @@ export default function useLogin() {
     google,
     updateProfile,
     signout,
+    updateemail,
     user: getAuth().currentUser,
+    verifyBeforeUpdate,
   };
 }

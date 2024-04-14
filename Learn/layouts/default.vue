@@ -1,5 +1,6 @@
 <template>
   <div :class="[$colorMode.preference === 'dark' ? 'dark' : '']">
+    <NuxtLoadingIndicator />
     <slot></slot>
   </div>
 </template>

@@ -10,5 +10,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["nuxt-icon", "@vueuse/nuxt", "@nuxtjs/color-mode"],
+  modules: ["nuxt-icon", "@pinia/nuxt", "@vueuse/nuxt", "@nuxtjs/color-mode"],
 });

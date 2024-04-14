@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",
-    "pnpm": "^8.14.1"
+    "nanoid": "^5.0.6",
+    "pnpm": "^8.14.1",
+    "vuedraggable": "^4.1.0"
   }
 }
