@@ -6,6 +6,11 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  runtimeConfig: {
+    github: {
+      token: "",
+    },
+  },
 
   ssr: false,
   colorMode: { classSuffix: "" },
