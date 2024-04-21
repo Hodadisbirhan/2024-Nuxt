@@ -6,6 +6,8 @@ const store = useData();
 const alt = useKeyModifier("Alt");
 const addCategory = ref("");
 const focus = ref(false);
+
+useCallOnce();
 const columns = ref([
   {
     id: nanoid(),

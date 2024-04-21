@@ -2,7 +2,8 @@
 import { useForm, useField } from "vee-validate";
 import { useData } from "~/store/useData";
 const store = useData();
-
+useCallOnce();
+useCallOnce();
 const err = ref(null);
 const credentail = ref(null);
 const initialValue = ref("");
