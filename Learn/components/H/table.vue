@@ -86,7 +86,7 @@ const sortedBy = (value) => {
             v-model="allSelected"
             class="" />
           <td
-            class="text-gray-900 cursor-move font-medium hover:bg-slate-300 text-[15px]"
+            class="text-gray-900 cursor-pointer font-medium hover:bg-slate-300 text-[15px]"
             v-for="head in headers"
             :key="head"
             @click="sortedBy(head)">
