@@ -1,14 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 export default defineNuxtPlugin((nuxtApp) => {
+  const config = useRuntimeConfig().public.firebase;
+  console.log(config, "config value");
   const firebaseConfig = {
-    apiKey: "AIzaSyDhxIxGlngXovb1JLVObSSIAxV0naKPwwc",
-    authDomain: "vue-firebase-24da2.firebaseapp.com",
-    projectId: "vue-firebase-24da2",
-    storageBucket: "vue-firebase-24da2.appspot.com",
-    messagingSenderId: "797151426216",
-    appId: "1:797151426216:web:67d4a58772f2721bf6749d",
-    measurementId: "G-7W4MC7G31N",
+    apiKey: config.apiKey,
+    authDomain: config.authDomain,
+    projectId: config.projectId,
+    storageBucket: config.storageBucket,
+    messagingSenderId: config.messagingSenderId,
+    appId: config.appId,
+    measurementId: config.measurementId,
   };
 
   const app = initializeApp(firebaseConfig);

@@ -7,8 +7,16 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    github: {
-      token: "",
+    public: {
+      firebase: {
+        apiKey: "",
+        authDomain: "",
+        projectId: "",
+        storageBucket: "",
+        messagingSenderId: "",
+        appId: "",
+        measurementId: "",
+      },
     },
   },
 
