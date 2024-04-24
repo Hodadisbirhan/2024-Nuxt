@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vee-validate", "firebase"],
   },
-  ssr: true,
+  ssr: false,
   colorMode: { classSuffix: "" },
   css: ["~/assets/css/styles.css"],
   postcss: {
