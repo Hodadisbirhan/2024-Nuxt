@@ -68,6 +68,8 @@ const deleteCategory = (id) => {
     return element.id !== id;
   });
 };
+
+const { data } = useFetch("/api/data");
 </script>
 
 <template>
@@ -126,5 +128,9 @@ const deleteCategory = (id) => {
       class="text-gray-200"
       >Home</NuxtLink
     >
+
+    <p class="text-white">
+      {{ data }}
+    </p>
   </div>
 </template>

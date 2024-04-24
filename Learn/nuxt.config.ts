@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   },
 
-  ssr: true,
+  ssr: false,
   colorMode: { classSuffix: "" },
   css: ["~/assets/css/styles.css"],
   postcss: {
