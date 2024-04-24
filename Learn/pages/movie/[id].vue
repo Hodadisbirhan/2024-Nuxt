@@ -74,7 +74,7 @@ const deleteCategory = (id) => {
   <div
     class="w-[100vw] min-h-screen flex flex-col gap-10 items-center justify-center bg-[#020420]">
     <h1
-      class="font-semibold text-base font-serif text-slate-500 py-2 px-6 rounded bg-slate-100 capitalize">
+      class="font-bold font-serif text-slate-500 py-4 rounded-md px-6 bg-gray-900 mt-7 text-lg">
       This is the todo app that you can performing drag and drop
     </h1>
     <draggable
@@ -115,8 +115,16 @@ const deleteCategory = (id) => {
       </template>
     </draggable>
     <pre class="text-gray-200">{{ columns }}</pre>
-    <span>{{ store.oneData }}</span>
-    <button @click="changeData">Change IT</button>
-    <NuxtLink :to="{ name: 'index' }">Home</NuxtLink>
+    <span class="text-gray-200">{{ store.oneData }}</span>
+    <button
+      @click="changeData"
+      class="text-gray-200">
+      Change IT
+    </button>
+    <NuxtLink
+      :to="{ name: 'index' }"
+      class="text-gray-200"
+      >Home</NuxtLink
+    >
   </div>
 </template>

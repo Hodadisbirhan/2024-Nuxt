@@ -90,7 +90,14 @@ const changeData = () => {
 <template>
   <main
     class="text-lg relative justify-center overflow-hidden items-center flex before:content-[''] before:w-[40rem] before:h-[40rem] before:bg-blue-400/60 before:rounded-[100%] before:absolute before:-top-7 before:-left-6 before:-translate-x-60 before:-translate-y-60 after:content-[''] after:w-[40rem] after:h-[40rem] after:bg-blue-900 after:rounded-[100%] after:absolute after:bottom-2 after:-right-6 after:translate-x-60 after:translate-y-60 font-bold before:-z-0 after:-z-2 pb-14 min-h-[100vh]">
-    <button @click="signo">signout</button>
+    <div
+      class="absolute top-3 right-5 text-gray-600 font-medium flex flex-row gap-3">
+      <NuxtLink :to="{ name: 'movie-id', params: { id: 'Todo' } }"
+        >Task</NuxtLink
+      >
+      <button @click="signo">SignOut</button>
+    </div>
+
     <div
       class="px-3 text-slate-500 w-full min-h-[100vh] font-normal bg-slate-100 py-7">
       <form
@@ -151,9 +158,6 @@ const changeData = () => {
         >
         <span>{{ store.oneData }}</span>
       </form>
-      <NuxtLink :to="{ name: 'movie-id', params: { id: '73949' } }"
-        >[id]</NuxtLink
-      >
     </div>
   </main>
 </template>
