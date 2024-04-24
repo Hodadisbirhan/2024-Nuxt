@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: {
+    enabled: true,
+    timeline: {
+      enabled: true,
+    },
+  },
   runtimeConfig: {
     public: {
       firebase: {
@@ -13,9 +19,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  build: {
-    transpile: ["vee-validate", "firebase"],
-  },
+
   ssr: false,
   colorMode: { classSuffix: "" },
   css: ["~/assets/css/styles.css"],
@@ -25,5 +29,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["nuxt-icon", "@vueuse/nuxt", "@nuxtjs/color-mode"],
+  modules: ["nuxt-icon", "@pinia/nuxt", "@vueuse/nuxt", "@nuxtjs/color-mode"],
 });
