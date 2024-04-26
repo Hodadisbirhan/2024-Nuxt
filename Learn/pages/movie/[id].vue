@@ -1,8 +1,9 @@
 <script setup>
 import draggable from "vuedraggable";
 import { nanoid } from "nanoid";
-import { useData } from "~/store/useData";
-const store = useData();
+import gsap from "gsap";
+// import { useData } from "~/store/useData";
+// const store = useData();
 const alt = useKeyModifier("Alt");
 const addCategory = ref("");
 const focus = ref(false);
@@ -50,11 +51,14 @@ const columns = ref([
     ],
   },
 ]);
+const number = ref(0);
+const tweend = reactive({ number: 0 });
 
 const changeData = () => {
   store.oneData = "here is my value change by [id].vue page ";
 };
 
+gsap.to(tweend, { duration: 0.5, number: Number(1000) });
 const createCategory = () => {
   if (addCategory.value) {
     columns.value.push({ name: addCategory.value, id: nanoid(), tasks: [] });
@@ -69,12 +73,13 @@ const deleteCategory = (id) => {
   });
 };
 
-const { data } = useFetch("/api/data");
+const { data } = useFetch("/api/data", { pick: [["name"]] });
 </script>
 
 <template>
   <div
     class="w-[100vw] min-h-screen flex flex-col gap-10 items-center justify-center bg-[#020420]">
+    <p class="text-white">{{ tweend.number?.toFixed(0) }}</p>
     <h1
       class="font-bold font-serif text-slate-500 py-4 rounded-md px-6 bg-gray-900 mt-7 text-lg">
       This is the todo app that you can performing drag and drop
@@ -117,20 +122,25 @@ const { data } = useFetch("/api/data");
       </template>
     </draggable>
     <pre class="text-gray-200">{{ columns }}</pre>
-    <span class="text-gray-200">{{ store.oneData }}</span>
+    <span class="text-gray-200">{{ store?.oneData }}</span>
     <button
       @click="changeData"
       class="text-gray-200">
       Change IT
     </button>
-    <NuxtLink
+    <!-- <NuxtLink
       :to="{ name: 'index' }"
       class="text-gray-200"
       >Home</NuxtLink
-    >
+    > -->
 
     <p class="text-white">
       {{ data }}
+      <input
+        type="number"
+        step="any"
+        v-model.number="number"
+        class="text-gray-900" />
     </p>
   </div>
 </template>

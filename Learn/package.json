@@ -22,9 +22,15 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "@vee-validate/rules": "^4.12.6",
     "@vueuse/core": "^10.7.2",
+    "firebase": "^10.11.1",
+    "gsap": "^3.12.5",
     "nanoid": "^5.0.6",
+    "pinia": "^2.1.7",
     "pnpm": "^8.14.1",
+    "vee-validate": "^4.12.6",
     "vuedraggable": "^4.1.0"
   }
 }
